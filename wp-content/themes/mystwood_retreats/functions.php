@@ -283,3 +283,167 @@ function starkers_posted_in() {
 	);
 }
 endif;
+
+function formatter($content) {
+	$new_content = '';
+	$pattern_full = '{(\[raw\].*?\[/raw\])}is';
+	$pattern_contents = '{\[raw\](.*?)\[/raw\]}is';
+	$pieces = preg_split($pattern_full, $content, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+	foreach ($pieces as $piece) {
+		if (preg_match($pattern_contents, $piece, $matches)) {
+			$new_content .= $matches[1];
+		} else {
+			$new_content .= wptexturize(wpautop($piece));
+		}
+	}
+
+	return $new_content;
+}
+
+remove_filter('the_content', 'wpautop');
+remove_filter('the_content', 'wptexturize');
+
+add_filter('the_content', 'formatter', 99);
+
+/**
+ * Slides post type
+ */
+function slide_post_type() {
+	$labels = array(
+		'name'                => _x('Slides', 'Post Type General Name', 'text_domain'),
+		'singular_name'       => _x('Slide', 'Post Type Singular Name', 'text_domain'),
+		'menu_name'           => __('Slides', 'text_domain'),
+		'parent_item_colon'   => __('', 'text_domain'),
+		'all_items'           => __('All Slides', 'text_domain'),
+		'view_item'           => __('View Slide', 'text_domain'),
+		'add_new_item'        => __('Add New Slide', 'text_domain'),
+		'add_new'             => __('Add New', 'text_domain'),
+		'edit_item'           => __('Edit Slide', 'text_domain'),
+		'update_item'         => __('Update Slide', 'text_domain'),
+		'search_items'        => __('Search slides', 'text_domain'),
+		'not_found'           => __('No slides found', 'text_domain'),
+		'not_found_in_trash'  => __('No slides found in Trash', 'text_domain'),
+	);
+
+	$args = array(
+		'label'               => __('slide', 'text_domain'),
+		'description'         => __('Home page slides', 'text_domain'),
+		'labels'              => $labels,
+		'supports'            => array('title', 'thumbnail'),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => get_bloginfo('template_directory') . '/images/admin-slides-icon.png',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+
+	register_post_type('slide', $args);
+}
+
+/**
+ * Specials post type
+ */
+function specials_post_type() {
+	$labels = array(
+		'name'                => _x('Specials', 'Post Type General Name', 'text_domain'),
+		'singular_name'       => _x('Special', 'Post Type Singular Name', 'text_domain'),
+		'menu_name'           => __('Specials', 'text_domain'),
+		'parent_item_colon'   => __('', 'text_domain'),
+		'all_items'           => __('All Specials', 'text_domain'),
+		'view_item'           => __('View Special', 'text_domain'),
+		'add_new_item'        => __('Add New Special', 'text_domain'),
+		'add_new'             => __('Add New', 'text_domain'),
+		'edit_item'           => __('Edit Special', 'text_domain'),
+		'update_item'         => __('Update Special', 'text_domain'),
+		'search_items'        => __('Search specials', 'text_domain'),
+		'not_found'           => __('No specials found', 'text_domain'),
+		'not_found_in_trash'  => __('No specials found in Trash', 'text_domain'),
+	);
+
+	$args = array(
+		'label'               => __('special', 'text_domain'),
+		'description'         => __('Specials', 'text_domain'),
+		'labels'              => $labels,
+		'supports'            => array('title', 'thumbnail'),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => get_bloginfo('template_directory') . '/images/admin-slides-icon.png',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+
+	register_post_type('specials', $args);
+}
+
+
+
+/**
+ * tariffs post type
+ */
+function tariffs_post_type() {
+	$labels = array(
+		'name'                => _x('Tariffs', 'Post Type General Name', 'text_domain'),
+		'singular_name'       => _x('Tariff', 'Post Type Singular Name', 'text_domain'),
+		'menu_name'           => __('Tariffs', 'text_domain'),
+		'parent_item_colon'   => __('', 'text_domain'),
+		'all_items'           => __('All Tariffs', 'text_domain'),
+		'view_item'           => __('View tariff', 'text_domain'),
+		'add_new_item'        => __('Add New Tariff', 'text_domain'),
+		'add_new'             => __('Add New', 'text_domain'),
+		'edit_item'           => __('Edit Tariff', 'text_domain'),
+		'update_item'         => __('Update Tariff', 'text_domain'),
+		'search_items'        => __('Search tariffs', 'text_domain'),
+		'not_found'           => __('No tariffs found', 'text_domain'),
+		'not_found_in_trash'  => __('No tariffs found in Trash', 'text_domain'),
+	);
+
+	$args = array(
+		'label'               => __('tariff', 'text_domain'),
+		'description'         => __('Tariffs', 'text_domain'),
+		'labels'              => $labels,
+		'supports'            => array('title', 'thumbnail'),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => get_bloginfo('template_directory') . '/images/admin-slides-icon.png',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+
+	register_post_type('tariffs', $args);
+}
+
+// Hook into the 'init' action
+add_action('init', 'slide_post_type', 0);
+add_action('init', 'specials_post_type', 0);
+add_action('init', 'tariffs_post_type', 0);
+
+function mr_add_editor_styles() {
+	add_editor_style('css/editor-style.css');
+}
+
+add_action('init', 'mr_add_editor_styles');

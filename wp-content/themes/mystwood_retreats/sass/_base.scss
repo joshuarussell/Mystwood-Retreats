@@ -1,0 +1,59 @@
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic|Roboto:400,400italic,700|Karla:400,400italic,700,700italic);
+@import 'bourbon';
+
+// Variables
+$base-font-size: 13px;
+
+// Colours
+$blue: #06C;
+$dark_blue: #000033;
+$grey: #333;
+$black: #000;
+$off_white: #F6F6F6;
+$green: #3C0;
+$light_green: #C4DF9B;
+$light_grey: #999;
+$purple: #000033;
+
+// Functions
+@function em($target, $context: $base-font-size) {
+  @if $target == 0 { @return 0 }
+  @return $target / $context + 0em;
+}
+
+html {
+  background-color: #FFF;
+}
+
+body {
+  background-color: $off_white;
+  font-size: $base-font-size;
+  font-family: Karla, $helvetica;
+  color: $grey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Serif", Georgia, "Times New Roman";
+}
+
+h1 {
+  color: $purple;
+  font-size: em(24px);
+  font-weight: normal;
+  margin-bottom: em(13px, $base-font-size);
+}
+
+h2 {
+  color: $purple;
+  font-size: em(20px);
+  font-weight: normal;
+  margin-bottom: em(8px, $base-font-size);
+}
+
+h3 {
+  color: #333;
+  font-family: inherit;
+  font-size: em(16px);
+  font-weight: normal;
+  margin-bottom: em(12px, $base-font-size);
+}

@@ -8,8 +8,9 @@
  */
 
 get_header(); ?>
-
+<div id="container" class="container_16">
+  <div class="grid_16">
     <?php get_template_part( 'loop', 'index' ); ?>
-
-<?php get_sidebar(); ?>
+  </div>
+</div>
 <?php get_footer(); ?>

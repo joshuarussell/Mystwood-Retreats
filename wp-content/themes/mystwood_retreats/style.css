@@ -1,10 +1,13 @@
 /*
 Theme Name: Mystwood Retreats
-Theme URI: http://madebyjoshua.com
+Theme URI: http://www.madebyjoshua.com
+Description: An HTML5 version of <a href="http://elliotjaystocks.com/starkers/">Starkers</a> by <a href="http://elliotjaystocks.com/">Elliot Jay Stocks</a> which is based on Twenty Ten.
 Version: 1.0
 Author: Joshua Russell
-Author URI: http://madebyjoshua.com
+Author URI: http://www.madebyjoshua.com
+Tags: starkers, html5, naked, clean, basic
 */
 
 @import "css/reset.css";
+@import "css/960_16_col.css";
 @import "css/screen.css";
