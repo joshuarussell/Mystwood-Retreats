@@ -1,52 +1,5 @@
 @import 'base';
-
-.post-edit-link {
-  color: #FF0000;
-  border-top: 1px solid #DDD;
-  padding-top: 10px;
-  margin-top: 10px;
-  display: block;
-}
-
-a {
-  color: $blue;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &.btn {
-    background: #EBEBEB;
-    height: 21px;
-    line-height: 21px;
-    display: inline-block;
-    text-transform: uppercase;
-    padding: 0 8px;
-    border-radius: 2px;
-    font-size: em(12px);
-
-    &.btn-primary {
-      background: $blue;
-      width: 127px;
-      height: 34px;
-      line-height: 34px;
-      font-size: em(15px);
-      color: #FFF;
-      text-transform: uppercase;
-      text-align: center;
-    }
-  }
-}
-
-p, ol, ul, blockquote {
-  line-height: 155%;
-  margin-bottom: 1.5em;
-}
-
-article footer {
-  margin-bottom: 1em;
-}
+@import '960_grid';
 
 #header {
   padding-top: 15px;
@@ -126,6 +79,7 @@ article footer {
 
       li {
         float: left;
+        list-style: none;
 
         a {
           display: block;
@@ -164,6 +118,7 @@ article footer {
     li {
       position: absolute;
       top: 175px;
+      list-style: none;
 
       &.prev {
         left: 0;
@@ -195,15 +150,14 @@ article footer {
   }
 
   #carousel-pager {
-    position: absolute;
+    @include position(absolute, 0 0 33px 57px);
     margin: 0;
     z-index: 1;
-    left: 57px;
-    bottom: 33px;
 
     li {
       float: left;
       margin-right: 8px;
+      list-style: none;
 
       a {
         background: url('../images/carousel-pager-icon.png') no-repeat;
@@ -229,14 +183,15 @@ article footer {
   }
 
   #carousel-buttons {
+  	@include position(absolute, 0 0 34px 594px);
     width: 320px;
-    @include position(absolute, 0 0 34px 594px);
     margin: 0;
     z-index: 1;
 
     li {
       float: left;
       margin-left: 14px;
+      list-style: none;
     }
 
     .btn {
@@ -286,7 +241,7 @@ article footer {
 
     img {
       margin-bottom: 15px;
-      margin-left: 40px;
+      margin-left: 30px;
     }
 
     p {
@@ -318,6 +273,7 @@ article footer {
         padding-left: 30px;
         height: 21px;
         margin-bottom: 10px;
+        list-style: none;
 
         a {
           color: $grey;
@@ -349,8 +305,11 @@ article footer {
   }
 }
 
-.home .post {
-  margin-bottom: 30px;
+.home {
+
+	#specials h2 a {
+		color: $purple;
+	}
 }
 
 #container {
@@ -383,9 +342,7 @@ article footer {
     margin-bottom: 40px;
 
     ul {
-      position: absolute;
-      bottom: 30px;
-      right: 40px;
+      @include position(absolute, 0 30px 30px 0);
       margin: 0;
 
       li {
@@ -422,8 +379,7 @@ article footer {
       sup {
         font-size: em(20px, 55px) !important;
         display: inline-block;
-        position: relative;
-        top: -20px;
+        @include position(relative, -20px 0 0 -3px);
       }
     }
 
@@ -435,13 +391,11 @@ article footer {
       font-size: em(11px);
       color: #666;
       border-top: 1px solid #EBEBEB;
-      padding-top: 25px;
+      padding-top: 15px;
     }
 
     .btn {
-      position: absolute;
-      left: 50%;
-      bottom: 24px;
+      @include position(absolute, 0 0 24px 50%);
       margin-left: -72px;
     }
   }

@@ -8,5 +8,9 @@
  */
 
 get_header(); ?>
-	<?php get_template_part( 'loop', 'single' ); ?>
+<div id="container" class="container_16">
+  <div class="grid_16">
+    <?php get_template_part( 'loop', 'single' ); ?>
+  </div>
+</div>
 <?php get_footer(); ?>

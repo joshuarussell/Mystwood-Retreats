@@ -23,6 +23,7 @@ function starkers_setup() {
 
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
+	add_image_size('banner-image', 940, 278, true);
 
 	// Add default posts and comments RSS feed links to head
 	add_theme_support( 'automatic-feed-links' );
@@ -240,20 +241,12 @@ if ( ! function_exists( 'starkers_posted_on' ) ) :
  * @since Starkers HTML5 3.0
  */
 function starkers_posted_on() {
-	printf( __( 'Posted on %2$s by %3$s', 'starkers' ),
+	printf( __( 'Posted on %2$s', 'starkers' ),
 		'meta-prep meta-prep-author',
-		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark"><time datetime="%3$s" pubdate>%4$s</time></a>',
-			get_permalink(),
-			esc_attr( get_the_time() ),
+		sprintf( '<time datetime="%1$s" pubdate>%2$s</time>',
 			get_the_date('Y-m-d'),
 			get_the_date()
-		),
-		sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
-			get_author_posts_url( get_the_author_meta( 'ID' ) ),
-			sprintf( esc_attr__( 'View all posts by %s', 'starkers' ), get_the_author() ),
-			get_the_author()
-		)
-	);
+		));
 }
 endif;
 
@@ -437,13 +430,23 @@ function tariffs_post_type() {
 	register_post_type('tariffs', $args);
 }
 
-// Hook into the 'init' action
-add_action('init', 'slide_post_type', 0);
-add_action('init', 'specials_post_type', 0);
-add_action('init', 'tariffs_post_type', 0);
-
 function mr_add_editor_styles() {
 	add_editor_style('css/editor-style.css');
 }
 
+function remove_comments() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('comments');
+}
+
+function remove_admin_menus() {
+	remove_menu_page('edit-comments.php');
+	remove_menu_page('edit.php');
+}
+
+add_action('init', 'slide_post_type', 0);
+add_action('init', 'specials_post_type', 0);
+add_action('init', 'tariffs_post_type', 0);
 add_action('init', 'mr_add_editor_styles');
+add_action('wp_before_admin_bar_render', 'remove_comments');
+add_action('admin_menu', 'remove_admin_menus');

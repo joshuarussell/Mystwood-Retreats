@@ -9,6 +9,15 @@
 ?>
 <div id="container" class="container_16">
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<?php if(!is_front_page() && has_post_thumbnail()): ?>
+    <div id="banner" class="grid_16">
+      <?php the_post_thumbnail('banner-image'); ?>
+      <ul>
+        <li><a href="#" class="btn">Specials &gt;</a></li>
+        <li><a href="#" class="btn">Book now &gt;</a></li>
+      </ul>
+    </div>
+    <?php endif; ?>
 		<article class="grid_16 post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<?php if(is_front_page()) : ?>
 			<?php if(get_the_post_thumbnail()) : ?>
@@ -44,7 +53,27 @@
 <section id="specials">
 	<div class="container_16">
 		<div class="clearfix">
-			<?php include_once(get_template_directory() . '/includes/packages.php'); ?>
+			<?php
+			  query_posts('post_type=specials&order=ASC&posts_per_page=3');
+
+			  if(have_posts()) :
+			    while (have_posts()) :
+			      the_post();
+			      if(get_field('show_on_home_page')) :
+			?>
+			<article class="grid_4">
+			  <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+			  <h3><?php the_field('sub_heading'); ?></h3>
+			  <?php the_field('content'); ?>
+			  <a href="<?php the_permalink(); ?>" class="btn">More &gt;</a>
+			  <?php edit_post_link( __( 'Edit Special', 'starkers' ), '', ''); ?>
+			</article>
+			<?php
+			      endif;
+			    endwhile;
+			  endif;
+			  wp_reset_query();
+			?>
 			<article id="enquire-now" class="grid_4">
 				<h2>Enquire Now</h2>
 				<h3>Contact Mystwood anytime</h3>

@@ -53,6 +53,7 @@ $(document).ready(function() {
     $('#carousel-pager').append('<li' + ((i === 1) ? ' class="current"' : '') + '><a href="#' + i + '">' + i + '</a></li>');
   }
 
+  // Click pager item
   $('#carousel-pager li a').click(function() {
     if(!$('#carousel .item').is(':animated')) {
       if(!$(this).parent().hasClass('current')) {

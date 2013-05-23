@@ -15,7 +15,7 @@
     <h1><?php the_title(); ?></h1>
     <?php if(has_post_thumbnail()): ?>
     <div id="banner">
-      <?php the_post_thumbnail(); ?>
+      <?php the_post_thumbnail('banner-image'); ?>
       <ul>
         <li><a href="#" class="btn">Specials &gt;</a></li>
         <li><a href="#" class="btn">Book now &gt;</a></li>
@@ -51,17 +51,4 @@
     <a href="" class="btn btn-primary">Specials &gt;</a>
   </div>
 </div>
-<section id="specials">
-  <div class="container_16">
-    <div class="clearfix">
-      <h1 class="grid_16">Our Packages</h1>
-      <article id="our-packages" class="grid_4">
-        <p>Choose a package or contact us to create your own.</p>
-        <img src="<?php bloginfo('template_directory') ?>/images/tree.png" alt="" />
-        <a href="#" class="btn btn-primary">Contact us &gt;</a>
-      </article>
-      <?php include_once(get_template_directory() . '/includes/packages.php'); ?>
-    </div>
-  </div>
-</section>
 <?php get_footer(); ?>
