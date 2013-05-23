@@ -17,8 +17,8 @@
     <div id="banner">
       <?php the_post_thumbnail('banner-image'); ?>
       <ul>
-        <li><a href="#" class="btn">Specials &gt;</a></li>
-        <li><a href="#" class="btn">Book now &gt;</a></li>
+        <li><a href="/specials" class="btn">Specials &gt;</a></li>
+        <li><a href="http://book.resonline.com.au/make-booking?ap=325750" class="btn">Book now &gt;</a></li>
       </ul>
     </div>
     <?php endif; ?>
@@ -36,7 +36,7 @@
       <p class="price"><sup>$</sup><?php the_field('price'); ?></p>
       <p class="disclaimer"><?php the_field('disclaimer'); ?></p>
       <p class="availability"><?php the_field('availability'); ?></p>
-      <a href="" class="btn btn-primary">Book now &gt;</a>
+      <a href="http://book.resonline.com.au/make-booking?ap=325750" class="btn btn-primary">Book now &gt;</a>
     </div>
     <?php edit_post_link( __( 'Edit Tariff', 'starkers' ), '', ''); ?>
   </div>
@@ -48,7 +48,7 @@
     <h2>Specials</h2>
     <p class="price">Discount</p>
     <p class="disclaimer">Choose from a range of hand picked packages to suit your time and budget.</p>
-    <a href="" class="btn btn-primary">Specials &gt;</a>
+    <a href="/specials" class="btn btn-primary">Specials &gt;</a>
   </div>
 </div>
 <?php get_footer(); ?>

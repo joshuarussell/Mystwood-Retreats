@@ -59,6 +59,7 @@ h2 {
   font-size: em(20px);
   font-weight: normal;
   margin-bottom: em(8px, $base-font-size);
+  line-height: 26px;
 }
 
 h3 {
@@ -123,4 +124,10 @@ ol li {
 
 article footer {
   margin-bottom: 1em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #DDD;
+  margin: 0 0 2em 0;
 }

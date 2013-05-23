@@ -9,28 +9,20 @@
 
 get_header(); ?>
 
-<?php
-	if ( have_posts() )
-		the_post();
-?>
+<div id="container" class="container_16">
+	<div class="grid_16">
+		<?php
+			global $post;
 
-			<h1>
-<?php if ( is_day() ) : ?>
-				<?php printf( __( 'Daily Archives: %s', 'starkers' ), get_the_date() ); ?>
-<?php elseif ( is_month() ) : ?>
-				<?php printf( __( 'Monthly Archives: %s', 'starkers' ), get_the_date('F Y') ); ?>
-<?php elseif ( is_year() ) : ?>
-				<?php printf( __( 'Yearly Archives: %s', 'starkers' ), get_the_date('Y') ); ?>
-<?php else : ?>
-				<?php _e( 'Blog Archives', 'starkers' ); ?>
-<?php endif; ?>
-			</h1>
+			if($post->post_type == 'specials') :
+		?>
+		<h1>Specials</h1>
+		<?php
+			endif;
 
-<?php
-	rewind_posts();
-
-	get_template_part( 'loop', 'archive' );
-?>
-
-<?php get_sidebar(); ?>
+			rewind_posts();
+			get_template_part('loop', 'archive');
+		?>
+	</div>
+</div>
 <?php get_footer(); ?>

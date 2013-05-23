@@ -90,24 +90,13 @@
     <?php else : ?>
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 			<header>
                 <h2><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'starkers' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-
-                <?php starkers_posted_on(); ?>
             </header>
-
-    <?php if ( is_archive() || is_search() ) : // Only display excerpts for archives and search. ?>
-                <?php the_excerpt(); ?>
-    <?php else : ?>
-                <?php the_content( __( 'Continue reading &rarr;', 'starkers' ) ); ?>
-
-                <?php wp_link_pages( array( 'before' => '<nav>' . __( 'Pages:', 'starkers' ), 'after' => '</nav>' ) ); ?>
-    <?php endif; ?>
+            <?php the_field('content'); ?>
+            <p class="availability"><?php the_field('availability'); ?></p>
+            <p><a href="http://book.resonline.com.au/make-booking?ap=325750" class="btn btn-primary">Book now &gt;</a></p>
 		</article>
-
-        <?php comments_template( '', true ); ?>
-
     <?php endif; // This was the if statement that broke the loop into three parts based on categories. ?>
 
 <?php endwhile; // End the loop. Whew. ?>

@@ -76,7 +76,7 @@
                 <ul id="carousel-pager"></ul>
                 <?php endif; ?>
                 <ul id="carousel-buttons">
-                    <li><a href="/tarrifs-and-packages" class="btn">Specials &gt;</a></li>
+                    <li><a href="/specials" class="btn">Specials &gt;</a></li>
                     <li><a href="http://book.resonline.com.au/make-booking?ap=325750" class="btn">Book Now &gt;</a></li>
                 </ul>
                 <div id="carousel-items">

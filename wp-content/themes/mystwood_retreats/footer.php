@@ -9,6 +9,7 @@
 ?>
 <section id="specials">
   <div class="container_16">
+    <?php if(!is_archive()) : ?>
     <div class="clearfix">
       <h1 class="grid_16">Our Packages</h1>
       <article id="our-packages" class="grid_4">
@@ -38,6 +39,7 @@
         wp_reset_query();
       ?>
     </div>
+  <?php endif; ?>
   </div>
 </section>
 <footer id="footer">

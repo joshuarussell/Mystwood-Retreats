@@ -71,4 +71,8 @@ $(document).ready(function() {
     return false;
   });
 
+  // Open external links in a new window
+  $('a[href^="http://"]').filter(function() {
+    return this.hostname && this.hostname !== location.hostname;
+  }).attr('target', '_blank');
 });

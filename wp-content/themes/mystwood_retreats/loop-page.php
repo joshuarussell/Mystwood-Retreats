@@ -13,8 +13,8 @@
     <div id="banner" class="grid_16">
       <?php the_post_thumbnail('banner-image'); ?>
       <ul>
-        <li><a href="#" class="btn">Specials &gt;</a></li>
-        <li><a href="#" class="btn">Book now &gt;</a></li>
+        <li><a href="/specials" class="btn">Specials &gt;</a></li>
+        <li><a href="http://book.resonline.com.au/make-booking?ap=325750" class="btn">Book now &gt;</a></li>
       </ul>
     </div>
     <?php endif; ?>
