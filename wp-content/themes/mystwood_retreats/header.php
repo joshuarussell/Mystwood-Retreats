@@ -40,6 +40,11 @@
         <script src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/jquery.js"></script>
         <script src="<?php bloginfo('template_directory'); ?>/js/common.js"></script>
+        <?php if(is_page('contact-us')) : ?>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="<?php bloginfo('template_directory'); ?>/js/gmap3.min.js"></script>
+        <script src="<?php bloginfo('template_directory'); ?>/js/contact.js"></script>
+        <?php endif; ?>
 
         <?php
             wp_head();
