@@ -385,8 +385,6 @@ function specials_post_type() {
 	register_post_type('specials', $args);
 }
 
-
-
 /**
  * tariffs post type
  */
